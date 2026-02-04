@@ -3,11 +3,226 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>My Portfolio</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #0d6efd;
+            --secondary-color: #6c757d;
+            --dark-overlay: rgba(0, 0, 0, 0.6);
+        }
+
+        body {
+            position: relative;
+            overflow-x: hidden;
+            background-attachment: fixed;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark-overlay);
+            z-index: -1;
+            pointer-events: none;
+        }
+
+        .hero-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+            object-fit: cover;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.9) !important;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .navbar-brand {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #fff !important;
+        }
+
+        #home {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            padding-top: 80px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+            position: relative;
+            z-index: 0;
+        }
+
+        #home h1 {
+            font-size: 3.5rem;
+            font-weight: bold;
+            margin-bottom: 20px;
+            animation: fadeIn 1s ease-in;
+        }
+
+        #home .lead {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #e0e0e0;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .section-padding {
+            padding: 80px 0;
+            background: rgba(255, 255, 255, 0.95);
+            position: relative;
+            z-index: 1;
+        }
+
+        .section-padding h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 50px;
+        }
+
+        .card {
+            border: none;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.3s ease;
+            margin-bottom: 30px;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .card h4, .card h5 {
+            color: #333;
+            font-weight: bold;
+            margin-bottom: 15px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        #services {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        #certifications {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        #education {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        #projects {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        #projects .card img {
+            height: 250px;
+            object-fit: cover;
+        }
+
+        #contact {
+            background: rgba(255, 255, 255, 0.95);
+        }
+
+        .form-control {
+            border-radius: 8px;
+            border: 1px solid #ddd;
+            padding: 12px 15px;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.25);
+        }
+
+        .btn-primary {
+            background-color: var(--primary-color);
+            border: none;
+            border-radius: 8px;
+            padding: 12px 30px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            background-color: #0b5ed7;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(13, 110, 253, 0.4);
+        }
+
+        .btn-light {
+            background-color: white;
+            color: #333;
+            border: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn-light:hover {
+            background-color: #f0f0f0;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background-color: #1a1a1a !important;
+            border-top: 2px solid #333;
+        }
+
+        footer a {
+            transition: all 0.3s ease;
+        }
+
+        footer a:hover {
+            transform: scale(1.2);
+            color: var(--primary-color) !important;
+        }
+
+        img.img-fluid {
+            animation: fadeIn 1.5s ease-in;
+        }
+
+        @media (max-width: 768px) {
+            #home h1 {
+                font-size: 2.5rem;
+            }
+            #home .lead {
+                font-size: 1.2rem;
+            }
+            .section-padding h2 {
+                font-size: 2rem;
+            }
+        }
+    </style>
 </head>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet">
+
 <body>
+<video autoplay muted loop playsinline class="hero-video w-100 h-100">
+<source src="videos/Abstract Dark Tech Network Lines 4K Live Wallpaper.mp4" type="video/mp4">
+</video>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container">
         <a class="navbar-brand" href="#">My Portfolio</a>
@@ -18,6 +233,8 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item"><a class="nav-link" href="#home">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+                <li class="nav-item"><a class="nav-link" href="#certifications">Certifications</a></li>
+                <li class="nav-item"><a class="nav-link" href="#education">Education</a></li>
                 <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                 <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
             </ul>
@@ -28,7 +245,6 @@
 <section id="home" class="hero">
     <div class="container">
         <div class="row align-items-center">
-            <section style="padding-top:300px;"></section>
             <div class="col-md-6 text-center text-md-start">
                 <h1 class="display-4">Hi, I'm Zhai!</h1>
                 <p class="lead">A Beginner Web Developer</p>
@@ -37,13 +253,11 @@
             <div class="col-md-6 text-center">
                 <img src="images/OIP.webp" class="img-fluid border border-light rounded" style="max-width:350px;" alt="Profile">
             </div>
-            <section style="padding-bottom:300px;"></section>
         </div>
     </div>
 </section>
 
 <section id="services" class="section-padding">
-    <section style="padding-top:300px;"></section>
     <div class="container">
         <h2 class="text-center mb-5">My Services</h2>
         <div class="row text-center">
@@ -65,33 +279,85 @@
                     <p>Beginner-friendly web projects.</p>
                 </div>
             </div>
-            <section style="padding-bottom:300px;"></section>
         </div>
     </div>
 </section>
 
-<section id="projects" class="section-padding bg-light">
+<section id="certifications" class="section-padding">
     <div class="container">
-        <section style="padding-top:250px;"></section>
+        <h2 class="text-center mb-5">Certifications</h2>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <i class="bi bi-award fs-1 text-primary mb-3"></i>
+                    <h5>Web Development Basics</h5>
+                    <p>HTML, CSS, and Bootstrap fundamentals</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <i class="bi bi-shield-lock fs-1 text-primary mb-3"></i>
+                    <h5>Certiport IT Specialist in Java</h5>
+                    <p>Java programming fundamentals and best practices</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card p-4">
+                    <i class="bi bi-patch-check fs-1 text-primary mb-3"></i>
+                    <h5>Solo Learn Python Developer</h5>
+                    <p>Python programming basics and applications</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="education" class="section-padding">
+    <div class="container">
+        <h2 class="text-center mb-5">Education</h2>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card p-4">
+                    <h4>Bachelor of Science in Information Technology</h4>
+                    <p class="mb-1"><strong>The University of Mindanao / College of Computing Education</strong></p>
+                    <p class="text-muted">2024 – Present</p>
+                    <p>
+                        Focused on web development, programming fundamentals,
+                        and information security concepts.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="projects" class="section-padding">
+    <div class="container">
         <h2 class="text-center mb-5">My Projects</h2>
         <div class="row">
             <div class="col-md-4">
                 <div class="card">
-                    <img src="https://via.placeholder.com/400x250" class="card-img-top">
+                    <img src="images/photo_6059721430846344661_w.jpg" class="card-img-top">
                     <div class="card-body">
                         <h5>Login System</h5>
                         <p>Simple login page.</p>
                     </div>
                 </div>
             </div>
-            <section style="padding-top:400px;"></section>
+            <div class="col-md-4">
+                <div class="card">
+                    <img src="images/photo_6059721430846344662_w.jpg" class="card-img-top">
+                    <div class="card-body">
+                        <h5>Payroll System</h5>
+                        <p>Basic payroll management system.</p>
+                    </div>
+                </div>
         </div>
     </div>
 </section>
 
 <section id="contact" class="section-padding">
     <div class="container">
-        <section style="padding-top:100px;"></section>
         <h2 class="text-center mb-5">Contact Me</h2>
         <div class="row justify-content-center">
             <div class="col-md-6">
@@ -106,9 +372,14 @@
     </div>
 </section>
 
-<section style="padding-top:250px;"></section>
 <footer class="text-center py-4 bg-dark text-white">
-    <p class="mb-0">© 2026 Zhaira Nicole | All Rights Reserved</p>
+    <div class="container">
+        <div class="mb-3 d-flex justify-content-center align-items-center gap-3">
+            <a href="https://www.facebook.com/yepbkit27" class="text-white fs-4"><i class="bi bi-facebook"></i></a>
+            <a href="https://github.com/zhaiiahzl11" class="text-white fs-4"><i class="bi bi-github"></i></a>
+        </div>
+        <p class="mb-0">© 2026 Zhaira Lestojas | All Rights Reserved</p>
+    </div>
 </footer>
 </body>
 </html>
